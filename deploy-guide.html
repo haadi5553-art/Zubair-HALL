@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zubair Hall Mess Manager - Cloud Deployment Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 720px 1020px; margin: 0; }
+:root {
+  --green: #0F3D2E;
+  --green-soft: #EAF3EE;
+  --text: #1F2937;
+  --muted: #5B6460;
+  --amber: #B45309;
+}
+html, body {
+  margin: 0; padding: 0;
+  width: 720px;
+  background: #FFFFFF;
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+@media screen {
+  html { height: auto; display: flex; justify-content: center; background: #22302A; }
+  body { margin: 20px auto; box-shadow: 0 8px 40px rgba(0,0,0,.4); }
+}
+
+/* ---------- Cover ---------- */
+.cover {
+  width: 720px; height: 1020px; box-sizing: border-box;
+  break-after: page; overflow: hidden; position: relative;
+  background: var(--green); color: #fff;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 64px;
+}
+.cover .ring {
+  position: absolute; border-radius: 50%; border: 2px solid rgba(255,255,255,.14);
+}
+.cover .r1 { width: 460px; height: 460px; top: -300px; right: -240px; }
+.cover .r2 { width: 300px; height: 300px; bottom: -200px; left: -200px; border-color: rgba(255,255,255,.10); }
+.cover .badge {
+  display: inline-block; width: fit-content;
+  border: 1px solid rgba(255,255,255,.4); border-radius: 999px;
+  padding: 6px 16px; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.cover h1 { font-size: 50px; font-weight: 900; line-height: 1.08; margin: 0 0 18px 0; }
+.cover .sub { font-size: 17px; color: rgba(255,255,255,.82); max-width: 530px; }
+.cover .url {
+  margin-top: 26px; display: inline-block; width: fit-content;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.35);
+  border-radius: 10px; padding: 10px 18px;
+  font-size: 19px; font-weight: 700; letter-spacing: .3px;
+}
+.cover .meta { margin-top: 40px; font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.9; }
+.cover .edition {
+  position: absolute; bottom: 56px; left: 64px; right: 64px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.55);
+  border-top: 1px solid rgba(255,255,255,.18); padding-top: 16px;
+}
+
+/* ---------- Flowing content ---------- */
+.main-content { padding: 56px 62px 40px 62px; }
+.chapter-header { break-after: avoid; break-inside: avoid; margin-top: 26px; }
+.chapter-header:first-child { margin-top: 0; }
+.kicker {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 4px;
+}
+h2.sec { font-size: 24px; font-weight: 900; color: var(--green); margin: 0 0 6px 0; line-height: 1.2; }
+.divider { width: 46px; height: 4px; background: var(--green); border-radius: 2px; margin: 10px 0 14px 0; }
+p.body { margin: 0 0 12px 0; }
+p.body b { color: var(--green); }
+
+.steps { margin: 10px 0 14px 0; padding: 0; list-style: none; counter-reset: step; }
+.steps li {
+  counter-increment: step; position: relative; padding: 0 0 10px 44px;
+  break-inside: avoid;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 1px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--green); color: #fff; font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.card {
+  background: var(--green-soft); border-radius: 12px;
+  padding: 16px 20px; margin: 12px 0 14px 0;
+  break-inside: avoid;
+}
+.card h4 { margin: 0 0 6px 0; font-size: 14.5px; font-weight: 700; color: var(--green); }
+.card p { margin: 0; font-size: 13.5px; }
+.card.amber { background: #FBF3E8; }
+.card.amber h4 { color: var(--amber); }
+.tip { font-size: 13px; color: var(--muted); }
+.kbd {
+  font-family: 'Inter', monospace; font-size: 12.5px;
+  background: #F1F5F2; border: 1px solid #D4E0D8; border-bottom-width: 2px;
+  border-radius: 5px; padding: 1px 7px; white-space: nowrap;
+}
+table.t { width: 100%; border-collapse: collapse; margin: 10px 0 14px 0; break-inside: avoid; font-size: 13px; }
+table.t th {
+  background: var(--green); color: #fff; text-align: left;
+  padding: 8px 12px; font-weight: 600;
+}
+table.t td { border: 1px solid #DCE5DF; padding: 7px 12px; vertical-align: top; }
+table.t tr:nth-child(even) td { background: #F6FAF7; }
+
+/* ---------- Ending ---------- */
+.ending {
+  width: 720px; height: 1020px; box-sizing: border-box;
+  break-before: page; overflow: hidden; position: relative;
+  background: var(--green); color: #fff;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 64px;
+}
+.ending .big { font-size: 32px; font-weight: 900; line-height: 1.3; max-width: 540px; }
+.ending .small { margin-top: 22px; font-size: 14px; color: rgba(255,255,255,.75); max-width: 480px; }
+.ending .foot {
+  position: absolute; bottom: 56px; left: 64px; right: 64px;
+  border-top: 1px solid rgba(255,255,255,.18); padding-top: 16px;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.55);
+}
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+  <div class="badge">Cloud Deployment Guide</div>
+  <h1>Zubair Hall<br>Mess Manager<br>Online</h1>
+  <div class="sub">Put the app on the internet with your own permanent URL. Any phone, any place - hostel, home or holidays. Free forever plans, no credit card.</div>
+  <div class="url">zubair-hall-mess.vercel.app</div>
+  <div class="meta">
+    University of Engineering &amp; Technology, Lahore<br>
+    GitHub (files) &middot; Neon (database) &middot; Vercel (hosting) &middot; About 20 minutes
+  </div>
+  <div class="edition"><span>Step-by-step for beginners</span><span>Cloud Edition</span></div>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<div class="main-content">
+
+  <div class="chapter-header">
+    <div class="kicker">Before you start</div>
+    <h2 class="sec">What You Are Going To Set Up</h2>
+    <div class="divider"></div>
+  </div>
+  <p class="body">The mess manager will run on <b>Vercel</b> - a professional hosting service used by thousands of companies. Your records will live in a <b>Neon</b> cloud database. Both have permanent free plans. Nothing in the app needs to be changed or coded - the SQLite to Postgres switch and the table creation happen <b>automatically during the first build</b>. You only click buttons and copy-paste one address.</p>
+  <div class="card">
+    <h4>You need</h4>
+    <p>An internet connection, 20&ndash;25 quiet minutes, and one email address. All three accounts (GitHub, Neon, Vercel) are free and card is never asked.</p>
+  </div>
+  <div class="card amber">
+    <h4>The order of work</h4>
+    <p>Step 1 &middot; GitHub = your files on the internet. Step 2 &middot; Neon = your database. Step 3 &middot; Vercel = puts both together and gives you the URL. Follow the steps in order, do not skip.</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="kicker">Step 1</div>
+    <h2 class="sec">GitHub - Put the Files Online</h2>
+    <div class="divider"></div>
+  </div>
+  <ol class="steps">
+    <li>Go to <span class="kbd">github.com</span> and click <b>Sign up</b>. Enter your email, make a password, and type the verification code they email you.</li>
+    <li>While logged in, open <span class="kbd">github.com/new</span>.</li>
+    <li><b>Repository name:</b> type <span class="kbd">zubair-hall-mess</span>. Select <b>Private</b>. Click <b>Create repository</b>.</li>
+    <li>On the new empty page, click the link <b>&ldquo;uploading an existing file&rdquo;</b>.</li>
+    <li>Open your extracted app folder on the PC. Press <span class="kbd">Ctrl+A</span> to select everything, then drag the selection onto the GitHub page and wait until every file is listed.</li>
+    <li>Click <b>Commit changes</b>. The upload of a few hundred small files takes a few minutes - let it finish.</li>
+  </ol>
+  <div class="card amber">
+    <h4>Tip (Roman Urdu)</h4>
+    <p>Agar folder mein <span class="kbd">node_modules</span> ya <span class="kbd">.next</span> naam ke folders hain to unhe select na karein - sirf baqi files drag karein. Zip se extract kiya hai to ye folders hain hi nahi, sab select karke drag kar dein.</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="kicker">Step 2</div>
+    <h2 class="sec">Neon - Free Database</h2>
+    <div class="divider"></div>
+  </div>
+  <ol class="steps">
+    <li>Go to <span class="kbd">neon.tech</span> and click <b>Sign Up</b>. Continue with Google is the fastest.</li>
+    <li>Create a new project. Name it <span class="kbd">zubair-hall-mess</span>. Any region is fine. Click <b>Create</b>.</li>
+    <li>Neon shows a <b>connection string</b> - a long line starting with <span class="kbd">postgresql://</span>. Click the <b>Copy</b> icon next to it.</li>
+    <li>Paste it in Notepad and save. This long line is the address AND the key of your database.</li>
+  </ol>
+  <div class="card">
+    <h4>Keep it private</h4>
+    <p>Anyone who has this string can read your mess data. Never post it in a group chat. (It ends with something like <span class="kbd">sslmode=require</span> - keep the full line exactly as copied.)</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="kicker">Step 3</div>
+    <h2 class="sec">Vercel - Your Own URL</h2>
+    <div class="divider"></div>
+  </div>
+  <ol class="steps">
+    <li>Go to <span class="kbd">vercel.com</span> and click <b>Sign Up</b> &rarr; <b>Continue with GitHub</b> (the same account you just made).</li>
+    <li>Click <b>Add New&hellip;</b> &rarr; <b>Project</b>, then click <b>Import</b> next to <span class="kbd">zubair-hall-mess</span>.</li>
+    <li><b>Project Name:</b> keep it exactly <span class="kbd">zubair-hall-mess</span> - your app URL becomes <span class="kbd">https://zubair-hall-mess.vercel.app</span>. If the name is already taken, use <span class="kbd">zubairhall-mess</span> or add <span class="kbd">-2</span>; the URL always matches the name you type.</li>
+    <li>Open the <b>Environment Variables</b> section and add two rows:<br>
+      &bull; Name <span class="kbd">DATABASE_URL</span> &rarr; Value: paste the long <span class="kbd">postgresql://&hellip;</span> string from Neon.<br>
+      &bull; Name <span class="kbd">SESSION_SECRET</span> &rarr; Value: mash your keyboard for one long random line of letters and numbers, and end it with something private only you know.</li>
+    <li>Click <b>Deploy</b> and wait 3&ndash;5 minutes for the confetti screen.</li>
+  </ol>
+  <div class="card">
+    <h4>No code changes needed</h4>
+    <p>During this first build the app switches itself to Postgres and creates all database tables automatically. You never open a terminal.</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="kicker">Step 4</div>
+    <h2 class="sec">First Login and Safety</h2>
+    <div class="divider"></div>
+  </div>
+  <ol class="steps">
+    <li>Open your URL - <span class="kbd">https://zubair-hall-mess.vercel.app</span> (Vercel also shows it under Domains). It opens from any phone, anywhere.</li>
+    <li>Log in with the initial password <span class="kbd">Hadi2750</span>.</li>
+    <li><b>Immediately</b> go to Settings &rarr; <b>Change password</b>. The app is now on the internet, so a private password is your lock.</li>
+    <li>To try the features, press <b>Load 10-day sample data</b> on the dashboard. Before starting real records, remove the demo: Settings &rarr; Data &rarr; <b>Clear all data</b> (type <span class="kbd">DELETE</span> to confirm).</li>
+    <li>Every week: Settings &rarr; Data &rarr; <b>Download full backup</b> and keep the file somewhere safe (WhatsApp saved messages, Google Drive, USB).</li>
+  </ol>
+
+  <div class="chapter-header">
+    <div class="kicker">Problems?</div>
+    <h2 class="sec">Common Issues and Fixes</h2>
+    <div class="divider"></div>
+  </div>
+  <table class="t">
+    <tr><th style="width:38%">What you see</th><th>What to do</th></tr>
+    <tr><td>&ldquo;The repository name already exists&rdquo; on Vercel</td><td>Another person in the world took that exact name. Use <span class="kbd">zubair-hall-mess-2</span> or <span class="kbd">zubairhall-mess</span> - the URL follows the name.</td></tr>
+    <tr><td><b>Deploy failed</b></td><td>Open the failing deployment &rarr; <b>Build Logs</b>. 9 out of 10 times the <span class="kbd">DATABASE_URL</span> variable is missing, misspelled, or not the complete string. Re-check Settings &rarr; Environment Variables and press <b>Redeploy</b>.</td></tr>
+    <tr><td>App opens but login shows an error</td><td>Take a screenshot of the Vercel <b>Build Logs</b> and ask for help - the fix is usually one variable.</td></tr>
+    <tr><td>Password forgotten (cloud)</td><td>Open <span class="kbd">neon.tech</span> &rarr; your project &rarr; <b>SQL Editor</b> &rarr; type <span class="kbd">DELETE FROM "Credential";</span> and press Run. Log in again with <span class="kbd">Hadi2750</span> and change it at once.</td></tr>
+    <tr><td>You received an improved version later</td><td>Upload the new files to the same GitHub repository (drag &amp; drop, replace). Vercel redeploys automatically; your data stays safe in Neon.</td></tr>
+  </table>
+
+</div>
+
+<!-- ================= ENDING ================= -->
+<div class="ending">
+  <div class="ring r1" style="position:absolute; width:460px; height:460px; top:-300px; right:-240px; border-radius:50%; border:2px solid rgba(255,255,255,.14);"></div>
+  <div class="big">One address for the whole hostel:<br>zubair-hall-mess.vercel.app</div>
+  <div class="small">East Wing, West Wing, daily one-click reports - from the mess office, your room, or your home. And the weekly backup keeps the register safe forever.</div>
+  <div class="foot"><span>Zubair Hall &middot; UET Lahore</span><span>Cloud Edition</span></div>
+</div>
+
+</body>
+</html>

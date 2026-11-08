@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zubair Hall Mess Manager - User Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+<style>
+@page { size: 720px 1020px; margin: 0; }
+:root {
+  --green: #0F3D2E;
+  --green-soft: #EAF3EE;
+  --text: #1F2937;
+  --muted: #5B6460;
+  --amber: #B45309;
+}
+html, body {
+  margin: 0; padding: 0;
+  width: 720px;
+  background: #FFFFFF;
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+@media screen {
+  html { height: auto; display: flex; justify-content: center; background: #22302A; }
+  body { margin: 20px auto; box-shadow: 0 8px 40px rgba(0,0,0,.4); }
+}
+
+/* ---------- Cover ---------- */
+.cover {
+  width: 720px; height: 1020px; box-sizing: border-box;
+  break-after: page; overflow: hidden; position: relative;
+  background: var(--green); color: #fff;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 64px;
+}
+.cover .ring {
+  position: absolute; border-radius: 50%; border: 2px solid rgba(255,255,255,.14);
+}
+.cover .r1 { width: 460px; height: 460px; top: -300px; right: -240px; }
+.cover .r2 { width: 300px; height: 300px; bottom: -200px; left: -200px; border-color: rgba(255,255,255,.10); }
+.cover .badge {
+  display: inline-block; width: fit-content;
+  border: 1px solid rgba(255,255,255,.4); border-radius: 999px;
+  padding: 6px 16px; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.cover h1 { font-size: 52px; font-weight: 900; line-height: 1.05; margin: 0 0 18px 0; }
+.cover .sub { font-size: 17px; color: rgba(255,255,255,.82); max-width: 520px; }
+.cover .meta { margin-top: 44px; font-size: 13px; color: rgba(255,255,255,.65); line-height: 1.9; }
+.cover .edition {
+  position: absolute; bottom: 56px; left: 64px; right: 64px;
+  display: flex; justify-content: space-between;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.55);
+  border-top: 1px solid rgba(255,255,255,.18); padding-top: 16px;
+}
+
+/* ---------- Flowing content ---------- */
+.main-content { padding: 56px 62px 40px 62px; }
+.chapter-header { break-after: avoid; break-inside: avoid; margin-top: 26px; }
+.chapter-header:first-child { margin-top: 0; }
+.kicker {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.2px; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 4px;
+}
+h2.sec { font-size: 24px; font-weight: 900; color: var(--green); margin: 0 0 6px 0; line-height: 1.2; }
+.divider { width: 46px; height: 4px; background: var(--green); border-radius: 2px; margin: 10px 0 14px 0; }
+p.body { margin: 0 0 12px 0; }
+p.body b { color: var(--green); }
+
+.steps { margin: 10px 0 14px 0; padding: 0; list-style: none; counter-reset: step; }
+.steps li {
+  counter-increment: step; position: relative; padding: 0 0 10px 44px;
+  break-inside: avoid;
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 1px;
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--green); color: #fff; font-weight: 700; font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+}
+.card {
+  background: var(--green-soft); border-radius: 12px;
+  padding: 16px 20px; margin: 12px 0 14px 0;
+  break-inside: avoid;
+}
+.card h4 { margin: 0 0 6px 0; font-size: 14.5px; font-weight: 700; color: var(--green); }
+.card p { margin: 0; font-size: 13.5px; }
+.card.amber { background: #FBF3E8; }
+.card.amber h4 { color: var(--amber); }
+.tip { font-size: 13px; color: var(--muted); }
+.kbd {
+  font-family: 'Inter', monospace; font-size: 12.5px;
+  background: #F1F5F2; border: 1px solid #D4E0D8; border-bottom-width: 2px;
+  border-radius: 5px; padding: 1px 7px; white-space: nowrap;
+}
+table.t { width: 100%; border-collapse: collapse; margin: 10px 0 14px 0; break-inside: avoid; font-size: 13px; }
+table.t th {
+  background: var(--green); color: #fff; text-align: left;
+  padding: 8px 12px; font-weight: 600;
+}
+table.t td { border: 1px solid #DCE5DF; padding: 7px 12px; vertical-align: top; }
+table.t tr:nth-child(even) td { background: #F6FAF7; }
+
+/* ---------- Ending ---------- */
+.ending {
+  width: 720px; height: 1020px; box-sizing: border-box;
+  break-before: page; overflow: hidden; position: relative;
+  background: var(--green); color: #fff;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 64px;
+}
+.ending .big { font-size: 34px; font-weight: 900; line-height: 1.25; max-width: 520px; }
+.ending .small { margin-top: 22px; font-size: 14px; color: rgba(255,255,255,.75); max-width: 460px; }
+.ending .foot {
+  position: absolute; bottom: 56px; left: 64px; right: 64px;
+  border-top: 1px solid rgba(255,255,255,.18); padding-top: 16px;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,.55);
+}
+</style>
+</head>
+<body>
+
+<!-- ================= COVER ================= -->
+<div class="cover">
+  <div class="ring r1"></div>
+  <div class="ring r2"></div>
+  <div class="badge">User Guide</div>
+  <h1>Zubair Hall<br>Mess Manager</h1>
+  <div class="sub">A complete register for the East Wing and West Wing messes: daily attendance, ingredients, expenses and official reports for the Resident Tutor.</div>
+  <div class="meta">
+    University of Engineering &amp; Technology, Lahore<br>
+    Works on your PC and on any phone connected to the same WiFi
+  </div>
+  <div class="edition"><span>Mess Incharge &amp; Munshi Handbook</span><span>Edition 1</span></div>
+</div>
+
+<!-- ================= CONTENT ================= -->
+<div class="main-content">
+
+  <div class="chapter-header">
+    <div class="kicker">Chapter 1</div>
+    <h2 class="sec">First Login and the Two Messes</h2>
+    <div class="divider"></div>
+  </div>
+  <p class="body">Open the app address in any browser (Chrome is recommended). You will see the login screen. Enter the password that was set up for you and click <b>Log in</b>. If you or the Munshi type the wrong password five times, the app locks the login for <b>60 seconds</b> - wait a minute and try again.</p>
+  <p class="body">Your hostel has <b>two separate messes</b>. Use the <b>East Wing / West Wing</b> switch at the top-right corner of every page to move between them. Each mess keeps its own attendance, ingredients, expenses, rates and reports - switching never mixes the two accounts. The choice is remembered on your phone or computer.</p>
+  <div class="card">
+    <h4>Do this first</h4>
+    <p>Go to <b>Settings</b> and fill in the Resident Tutor's name, the Mess Incharge and Munshi names for both messes, the total students in each mess and the default rate. These details appear on every report, so set them before printing anything.</p>
+  </div>
+  <div class="card amber">
+    <h4>Change the password</h4>
+    <p>Settings &gt; <b>Change password</b>. Enter the current password once and the new password twice (at least 8 characters). Everyone who uses the app shares this one password, so share it only with the Munshi.</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="kicker">Chapter 2</div>
+    <h2 class="sec">How to Add a Day (Daily Entry)</h2>
+    <div class="divider"></div>
+  </div>
+  <p class="body">Daily Entry is the screen you will use every day, separately for each mess. Make sure the correct mess is selected, then follow these steps:</p>
+  <ol class="steps">
+    <li><b>Pick the date</b> at the top. Today's date opens by default; you can back-date or forward-date freely.</li>
+    <li><b>Lunch</b>: type the menu (e.g. "Chicken Karahi + Roti"), the number of students who ate, and the rate per student. The rate is pre-filled with the last rate you used for that mess.</li>
+    <li><b>Ingredients used</b>: click <b>Add item</b> for every item. Choose a category, type the item name, quantity, unit and unit price. The <b>Amount</b> column calculates itself (quantity &times; unit price) and the meal totals update live while you type.</li>
+    <li><b>Dinner</b>: repeat the same three fields and its own ingredient list.</li>
+    <li><b>Extra expenses</b>: add anything that is not an ingredient - gas cylinders, salaries, repairs, transport - with a category, description and amount. Extras belong to the whole day, not to one meal.</li>
+    <li><b>Save day</b>: the green button on the bottom bar stores everything. A confirmation appears when the day is saved.</li>
+  </ol>
+  <div class="card">
+    <h4>Save typing with "Copy items from previous day"</h4>
+    <p>This button copies the previous day's menus and ingredient names (with unit prices and vendors) into today's form. Quantities and attendance stay blank because they change every day - just fill them in and save.</p>
+  </div>
+  <div class="card amber">
+    <h4>Warnings you will see</h4>
+    <p>The app warns you when a meal has ingredients but zero students, when a quantity is entered without a unit price, or when an item has no name. Items without a name are never saved, so nothing incomplete can hide inside the register.</p>
+  </div>
+  <p class="body tip">The bottom bar always shows the live day totals: amount at rate, ingredients cost, extras, cost per student-meal and the day's surplus or deficit.</p>
+
+  <div class="chapter-header">
+    <div class="kicker">Chapter 3</div>
+    <h2 class="sec">Fixing Mistakes (Records)</h2>
+    <div class="divider"></div>
+  </div>
+  <p class="body">Open <b>Records</b> to see every recorded day of the selected month for the selected mess. Each row shows both meals, the extras and the day's total expenditure.</p>
+  <ol class="steps">
+    <li><b>Edit</b> opens that day in Daily Entry with everything filled in - change anything and press Save day.</li>
+    <li><b>Delete</b> removes the whole day (both meals, all ingredients and the extras). The app asks you to confirm before deleting. Deletion is permanent, so keep backups.</li>
+  </ol>
+
+  <div class="chapter-header">
+    <div class="kicker">Chapter 4</div>
+    <h2 class="sec">The Weekly Report for the Resident Tutor</h2>
+    <div class="divider"></div>
+  </div>
+  <p class="body">The <b>Short Report</b> page produces the one-page summary you currently write by hand. Choose <b>Daily</b> or <b>Weekly (Mon-Sun)</b>, pick a date (for a weekly report, any date inside that week), and the report appears on screen with exactly the same numbers that will be printed:</p>
+  <ol class="steps">
+    <li><b>Download PDF</b> - the official one-page document: attendance and price summary on top, then lunch ingredients, dinner ingredients, extra expenses and the overall surplus or deficit. Hand it to the RT or print it.</li>
+    <li><b>Download Excel</b> - the same report as a spreadsheet if the RT prefers Excel.</li>
+    <li><b>Print</b> - prints the on-screen report directly from the browser.</li>
+  </ol>
+  <p class="body">The <b>Reports</b> page builds the <b>detailed report</b> for a day, a week, a month or any custom date range. It adds the day-wise summary, category-wise expenditure with percentage shares, item-wise consolidated usage, every single ingredient row of every meal, and a signature block for the Mess Incharge, Munshi and Resident Tutor. Download it as PDF or Excel from the buttons at the top.</p>
+  <div class="card">
+    <h4>What the numbers mean</h4>
+    <p><b>Amount at rate</b> = students who ate &times; rate per student. <b>Total expenditure</b> = ingredients + extra expenses. <b>Surplus / (Deficit)</b> = amount at rate &minus; total expenditure. Deficits are shown in red with brackets, e.g. (1,581.10).</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="kicker">Chapter 5</div>
+    <h2 class="sec">Dashboard and Settings</h2>
+    <div class="divider"></div>
+  </div>
+  <p class="body">The <b>Dashboard</b> shows the selected month at a glance: total expenditure, amount at rate, surplus or deficit, days recorded, student-meals served and average cost per student-meal, plus a daily line chart, category-wise spending and the top ten items. Use it in meetings to explain where the money went.</p>
+  <p class="body"><b>Settings</b> has two parts. <b>This mess</b> (switch between East and West at the top of the page) holds the mess display name, Mess Incharge, Munshi, total students and default rate. <b>Common settings</b> are shared by both messes: hostel name, the hostel line under it, the Resident Tutor's name, and the lists of item categories, expense categories and units - you can add or remove entries with one click.</p>
+
+  <div class="chapter-header">
+    <div class="kicker">Chapter 6</div>
+    <h2 class="sec">Back Up Your Data (Very Important)</h2>
+    <div class="divider"></div>
+  </div>
+  <p class="body">All data lives in one file on your PC. Backups protect you from disk failure and let you move the data to another computer. Take a backup at least <b>once a week</b> - it takes five seconds.</p>
+  <ol class="steps">
+    <li>Open <b>Settings &gt; Data</b> and click <b>Download full backup (JSON)</b>. Save the file somewhere safe - WhatsApp "Saved Messages", Google Drive or a USB drive.</li>
+    <li>To move or recover, click <b>Restore from backup file</b>, choose the backup, and confirm. Restoring replaces everything currently in the app (both messes) with the backup.</li>
+    <li><b>Export all data to Excel</b> gives you a human-readable copy of every meal, ingredient and expense for both messes.</li>
+  </ol>
+  <div class="card amber">
+    <h4>Extra safety copy</h4>
+    <p>Once a month, copy the whole app folder (or at least the <span class="kbd">db</span> folder) to a USB drive while the app is closed. Two copies of data is the golden rule.</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="kicker">Chapter 7</div>
+    <h2 class="sec">Running It on Your Own PC + Hostel WiFi</h2>
+    <div class="divider"></div>
+  </div>
+  <p class="body">The app runs on your own computer; phones open it over the hostel WiFi. One-time setup takes about 15 minutes:</p>
+  <ol class="steps">
+    <li><b>Install Node.js</b> (LTS version) from <span class="kbd">nodejs.org</span> - keep clicking Next until it finishes.</li>
+    <li><b>Unzip</b> the app folder, for example to <span class="kbd">C:\mess-manager</span>.</li>
+    <li><b>Open Command Prompt</b> in that folder (type <span class="kbd">cmd</span> in the File Explorer address bar and press Enter).</li>
+    <li>Type <span class="kbd">npm install</span> and wait (5-10 minutes, once only).</li>
+    <li>Type <span class="kbd">npm run build</span> and wait for it to finish (once only, or after updates).</li>
+    <li>Type <span class="kbd">npm start</span>. You will see "Ready" - the app is now running on this PC.</li>
+    <li><b>Allow it through the firewall</b>: the first time, Windows asks "Allow Node.js...?" - click <b>Allow access</b> (tick both Private and Public if asked).</li>
+    <li><b>Find your PC's address</b>: type <span class="kbd">ipconfig</span> and note the "IPv4 Address" (e.g. 192.168.1.50).</li>
+    <li>On any phone or laptop connected to the <b>same WiFi</b>, open <span class="kbd">http://192.168.1.50:3000</span> (use your own IPv4 number). Bookmark it.</li>
+  </ol>
+  <p class="body tip">Next time, you only need step 6: open Command Prompt in the folder, run <span class="kbd">npm start</span>, and leave the window open while the mess is working. Closing the window or putting the PC to sleep takes the app offline until you start it again.</p>
+  <div class="card">
+    <h4>Start automatically (optional)</h4>
+    <p>Double-click <span class="kbd">start.bat</span> in the app folder - it installs missing pieces, builds if needed and starts the app, then shows the address to open on your phone. To go further, use Windows Task Scheduler to run it at log-on.</p>
+  </div>
+  <div class="card amber">
+    <h4>Forgotten password</h4>
+    <p>Stop the app, open Command Prompt in the folder and run <span class="kbd">npm run reset-password</span>. This restores the original password; log in and change it in Settings straight away.</p>
+  </div>
+
+  <div class="chapter-header">
+    <div class="kicker">Chapter 8</div>
+    <h2 class="sec">Questions and Answers</h2>
+    <div class="divider"></div>
+  </div>
+  <table class="t">
+    <tr><th style="width:38%">Question</th><th>Answer</th></tr>
+    <tr><td>Do the two messes mix anywhere?</td><td>No. Every page, total, chart and report belongs to the mess selected in the switcher. The Excel export and backup label each row with its mess.</td></tr>
+    <tr><td>Can I edit a day from last month?</td><td>Yes - Records, change the month, open the day with Edit, fix it and save. Reports update instantly.</td></tr>
+    <tr><td>What if the internet is down?</td><td>Nothing breaks. The app runs on your PC; the WiFi only carries traffic between your devices. No internet connection is needed.</td></tr>
+    <tr><td>Is anyone else able to open it?</td><td>Only people on the same WiFi who know the password. The login locks for 60 seconds after 5 wrong attempts, and the password is stored only as an irreversible salted hash.</td></tr>
+    <tr><td>The phone shows "This site can't be reached".</td><td>The app is not running (start it with <span class="kbd">npm start</span>), the PC is asleep, or the phone is on a different WiFi / using mobile data.</td></tr>
+    <tr><td>Can I move everything to a new PC?</td><td>Install Node.js, unzip the app, run <span class="kbd">npm install</span> and <span class="kbd">npm run build</span>, then restore your latest backup file inside the app.</td></tr>
+    <tr><td>Sample data is showing - how do I start fresh?</td><td>Settings &gt; Data &gt; <b>Clear all mess data</b>, type DELETE to confirm, then enter your real days. Settings and the password are kept.</td></tr>
+  </table>
+
+</div>
+
+<!-- ================= ENDING ================= -->
+<div class="ending">
+  <div class="big">Clean register, honest numbers, on time - every single day.</div>
+  <div class="small">Keep the weekly backup habit, and the monthly report to the Resident Tutor will always take one click.</div>
+  <div class="foot">Zubair Hall Mess Manager · UET Lahore</div>
+</div>
+
+</body>
+</html>
